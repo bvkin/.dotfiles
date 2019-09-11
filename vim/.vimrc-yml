@@ -1,0 +1,81 @@
+" Automatic reloading on changes
+autocmd! bufwritepost .vimrc source %
+
+" For yaml.vim
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+
+" Allow use of mouse
+set mouse=a
+
+" Show line numbers and length
+set number              " show line numbers
+highlight clear LineNr  " set line numbers to white
+
+" Tab Navigation
+nnoremap <C-M-PageDown> :tabn<ESC>
+nnoremap <C-M-PageUp> :tabp<ESC>
+nnoremap <C-t>     :tabnew<CR>
+
+
+" Custom searching
+set hlsearch    " hightlight search
+set incsearch   " move cursor to string pattern
+set ignorecase  " Make search case insensitive
+" set smartcase
+
+
+" Change tab settings
+set expandtab      " make tab spaces
+set tabstop=2      " number of spaces created on tab
+set shiftwidth=2   " number of spaces created on tab in normal mode
+set softtabstop=2  " number of spaces deleted on backspace
+
+
+" Get rid of backup files
+set nobackup
+set nowritebackup
+set noswapfile
+
+
+" Add vim-powerline
+set laststatus=2
+
+" Config for ctrlp
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+
+"NERDTree
+Bundle "scrooloose/nerdtree"
+"ctrlp
+Bundle "kien/ctrlp.vim"
+"vim powerline
+Bundle "Lokaltog/vim-powerline"
+"vim indent guides
+Bundle "nathanaelkane/vim-indent-guides"
+"fugitive"
+Bundle "tpope/vim-fugitive"
+"supertab (tab completion)
+Bundle "ervandew/supertab"
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required for vundle
+filetype plugin indent on    " required for vundle
+" see :h vundle for more details or wiki for FAQ
+
