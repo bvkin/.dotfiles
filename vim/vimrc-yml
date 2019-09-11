@@ -4,6 +4,10 @@ autocmd! bufwritepost .vimrc source %
 " For yaml.vim
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
+" Color scheme of the moment:
+syntax on
+colorscheme desert
+
 " Allow use of mouse
 set mouse=a
 
