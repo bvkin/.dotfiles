@@ -29,8 +29,4 @@ plugins=(git ansible python taskwarrior)
 source $ZSH/oh-my-zsh.sh
 
 # Set aliases
-docker-murder() {
-  docker kill $1
-  docker rm $1
-}
-
+source $ZSH_DIR/modules/aliases
