@@ -1,8 +1,8 @@
-# Current Project
-PROJECT="goldfinch"
-
 # zsh directory
 ZSH_DIR=/Users/$(whoami)/.dotfiles/zsh
+
+# Import local custom settings
+source $ZSH_DIR/custom-local
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$PATH:/Users/$(whoami)/bin:/Applications/Postgres.app/Contents/Versions/11/bin
@@ -17,7 +17,9 @@ source $ZSH_DIR/modules/settings
 ZSH_THEME="af-magic"
 
 # Goldfinch setup
-source $ZSH_DIR/modules/goldfinch
+if [[ -v GOLDFINCH ]]; then
+    source $ZSH_DIR/modules/goldfinch
+fi
 
 # Gcloud settings
 source $ZSH_DIR/modules/gcloud
