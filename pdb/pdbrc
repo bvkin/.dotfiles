@@ -1,1 +1,2 @@
 alias ll u;;d;;l
+alias shell !import code; code.interact(local=vars())
