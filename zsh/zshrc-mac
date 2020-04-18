@@ -1,9 +1,6 @@
 # zsh directory
 ZSH_DIR=/Users/$(whoami)/.dotfiles/zsh
 
-# Import local custom settings
-source $ZSH_DIR/custom-local
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$PATH:/Users/$(whoami)/bin:/Applications/Postgres.app/Contents/Versions/11/bin
 
@@ -16,19 +13,21 @@ source $ZSH_DIR/modules/settings
 # Set theme 
 ZSH_THEME="af-magic"
 
-# Goldfinch setup
-if [[ -v GOLDFINCH ]]; then
-    source $ZSH_DIR/modules/goldfinch
-fi
-
-# Gcloud settings
-source $ZSH_DIR/modules/gcloud
-
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git ansible python taskwarrior)
 
-source $ZSH/oh-my-zsh.sh
+## Configure python environment
+source $ZSH_DIR/modules/python
 
 # Set aliases
 source $ZSH_DIR/modules/aliases
+
+# Gcloud settings
+source $ZSH_DIR/modules/gcloud
+
+source $ZSH/oh-my-zsh.sh
+
+# Import local custom settings
+source $ZSH_DIR/custom-local
+
