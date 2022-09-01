@@ -1,4 +1,0 @@
-# Set python environment
-PIPENV_VENV=goldfinch.gene-variant-internal-ids-9vRkfyMu
-source ~/.local/share/virtualenvs/$PIPENV_VENV/bin/activate
-export PATH=$PATH:/Users/$(whoami)/dev/kga-api/bin

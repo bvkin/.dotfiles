@@ -1,7 +1,7 @@
 # Set python environment
 
 # General
-PIPENV_VENV=general-pcnkNSyS
+#PIPENV_VENV=general-pcnkNSyS
 
 # Activate virtualenv
-source ~/.local/share/virtualenvs/$PIPENV_VENV/bin/activate
+#source ~/.local/share/virtualenvs/$PIPENV_VENV/bin/activate

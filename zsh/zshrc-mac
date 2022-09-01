@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # zsh directory
 ZSH_DIR=/Users/$(whoami)/.dotfiles/zsh
 
@@ -7,18 +14,23 @@ export PATH=$PATH:/Users/$(whoami)/bin:/Applications/Postgres.app/Contents/Versi
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/$(whoami)/.oh-my-zsh"
 
+export PATH=$PATH:/Users/bkincaid/.local/bin
+
 # Session Settings
-source $ZSH_DIR/modules/settings
+#source $ZSH_DIR/modules/settings
 
 # Set theme 
-ZSH_THEME="af-magic"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git ansible python taskwarrior)
+plugins=(git ansible python taskwarrior kubectl)
 
 ## Configure python environment
-source $ZSH_DIR/modules/python
+#source $ZSH_DIR/modules/python
+
+## Configure Go environment
+source $ZSH_DIR/modules/golang
 
 # Set aliases
 source $ZSH_DIR/modules/aliases
@@ -31,3 +43,31 @@ source $ZSH/oh-my-zsh.sh
 # Import local custom settings
 source $ZSH_DIR/custom-local
 
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+# Solana cli
+export PATH="/Users/bkincaid/.local/share/solana/install/active_release/bin:$PATH"
+
+export BACKUP_BUCKET=227370426707-storage-bucket
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bkincaid/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bkincaid/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bkincaid/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bkincaid/google-cloud-sdk/completion.zsh.inc'; fi
+
+awsauth () {
+        aws-sso-util login --all
+}
+
+# Created by `pipx` on 2022-08-24 15:52:48
+export PATH="$PATH:/Users/bkincaid/Library/Python/3.9/bin"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
